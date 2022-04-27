@@ -143,7 +143,7 @@ namespace ExemploTela
             this.btnEspeciali.Click += new EventHandler(this.handleEspecialidadeClick);
 
             this.btnSala = new Button();
-            this.btnSala.Text = "Sair";
+            this.btnSala.Text = "Sala";
             this.btnSala.Location = new Point(40, 140);
             this.btnSala.Size = new Size(100, 30);
             this.btnSala.Click += new EventHandler(this.handleSalaClick);
