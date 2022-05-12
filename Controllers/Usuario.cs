@@ -1,64 +1,75 @@
-/*using System;
-using System.Collections.Generic;
+using System;
 using System.Linq;
+using System.Collections.Generic;
 using Models;
 
 namespace Controllers
 {
-    public class UsuarioController 
+    public class UsuarioController
     {
-        public static Usuario InserirUsuario(
+        public static Usuario IncluirUsuario(
             string Nome,
+            string Email,
             string Senha
         )
         {
-            if (String.IsNullOrEmpty(Nome))
+            if(String.IsNullOrEmpty(Nome))
             {
                 throw new Exception("Nome inválido");
             }
 
-            if (String.IsNullOrEmpty(Senha))
+            if(String.IsNullOrEmpty(Email))
+            {
+                throw new Exception("Email inválido");
+            }
+
+            if(String.IsNullOrEmpty(Senha))
             {
                 throw new Exception("Senha inválida");
             }
-            else
-            {
-                Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
-            }
-        }
 
-        /*internal static void GetAgendamento(int idAgendamento)
-        {
-            throw new NotImplementedException();
+            return new Usuario(Nome, Email, Senha);
         }
 
         public static Usuario AlterarUsuario(
             int Id,
             string Nome,
+            string Email,
             string Senha
         )
         {
             Usuario usuario = GetUsuario(Id);
 
-            if (!String.IsNullOrEmpty(Nome))
+            if(!String.IsNullOrEmpty(Nome))
             {
-                usuario.Nome = Nome;
+                Nome = Nome;
             }
 
-            if (!String.IsNullOrEmpty(Senha))
+            if(!String.IsNullOrEmpty(Email))
             {
-                usuario.Senha = BCrypt.Net.BCrypt.HashPassword(Senha);
+                Email = Email;
+            }
+
+            if(!String.IsNullOrEmpty(Senha))
+            {
+                Senha = Senha;
             }
 
             return usuario;
-        }*/
-        
-       /* public static List<Usuario> VisualizarUsuario()
-        {
-            return Usuario.GetUsuario();
         }
 
-        public static Usuario GetUsuario(int Id)
+        public static Usuario RemoverUsuario(
+            int Id
+        )
+        {
+            Usuario usuario = GetUsuario(Id);
+            Usuario.RemoverUsuario(usuario);
+            return usuario;
+        }
+
+        public static Usuario GetUsuario(
+            int Id
+        )
         {
             Usuario usuario = (
                 from Usuario in Usuario.GetUsuarios()
@@ -66,12 +77,25 @@ namespace Controllers
                     select Usuario
             ).First();
 
-            if (usuario == null)
+            if(usuario == null)
             {
                 throw new Exception("Usuário não encontrado");
             }
 
             return usuario;
         }
+
+        public static IEnumerable<Usuario> VisualizarUsuario()
+        {
+            return Usuario.GetUsuarios();
+        }
+
+        public static void Auth(
+            string Email,
+            string Senha
+        )
+        {
+            Usuario.Auth(Email, Senha);
+        }
     }
-}*/
+}
