@@ -36,7 +36,7 @@ namespace Controllers
 
             if(senhaTag == null)
             {
-                throw new Exception("Senha Tag não encontrada");
+                throw new Exception("Senha da Tag não encontrada");
             }
 
             return senhaTag;
