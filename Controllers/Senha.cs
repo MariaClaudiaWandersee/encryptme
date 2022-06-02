@@ -26,15 +26,15 @@ namespace Controllers
             }
             if(String.IsNullOrEmpty(Usuario))
             {
-                throw new Exception("Url inválido");
+                throw new Exception("Usuário inválido");
             }
             if(String.IsNullOrEmpty(SenhaEncrypt))
             {
-                throw new Exception("Url inválido");
+                throw new Exception("Senha inválida");
             }
             if(String.IsNullOrEmpty(Procedimento))
             {
-                throw new Exception("Url inválido");
+                throw new Exception("Procedimento inválido");
             }
 
             return new Senha(Nome, CategoriaId, Url, Usuario, SenhaEncrypt, Procedimento);
@@ -56,19 +56,19 @@ namespace Controllers
             {
                 Nome = Nome;
             }
-            if(!String.IsNullOrEmpty(Nome))
+            if(!String.IsNullOrEmpty(Url))
             {
                 Url = Url;
             }
-            if(!String.IsNullOrEmpty(Nome))
+            if(!String.IsNullOrEmpty(Usuario))
             {
                 Usuario = Usuario;
             }
-            if(!String.IsNullOrEmpty(Nome))
+            if(!String.IsNullOrEmpty(SenhaEncrypt))
             {
                 SenhaEncrypt = SenhaEncrypt;
             }
-            if(!String.IsNullOrEmpty(Nome))
+            if(!String.IsNullOrEmpty(Procedimento))
             {
                 Procedimento = Procedimento;
             }
