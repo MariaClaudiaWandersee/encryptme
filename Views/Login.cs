@@ -72,8 +72,8 @@ namespace ExemploLogin
             this.Controls.Add(this.txtUser);
             this.Controls.Add(this.txtPass);
 
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnCancel);
 
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -90,11 +90,6 @@ namespace ExemploLogin
                 Home form = new Home();
                 form.Size = new Size(320, 300);
                 form.Show();
-            }
-            else
-            {
-                
-
             }
         }
 
@@ -118,7 +113,7 @@ namespace ExemploLogin
         public Home()
         {
             this.lblLogin = new Label();
-            this.lblLogin.Text = "Olá Teste";
+            this.lblLogin.Text = "Olá Usuário";
             this.lblLogin.Location = new Point(117, 20);
 
             this.btnCategorias = new Button();
@@ -128,22 +123,22 @@ namespace ExemploLogin
             this.btnCategorias.Click += new EventHandler(this.handleCategoriaClick);
 
 
-            this.btnTags = new Button();
-            this.btnTags.Text = "Tags";
-            this.btnTags.Location = new Point(160, 60);
-            this.btnTags.Size = new Size(100, 30);
+            // this.btnTags = new Button();
+            // this.btnTags.Text = "Tags";
+            // this.btnTags.Location = new Point(160, 60);
+            // this.btnTags.Size = new Size(100, 30);
 
-            this.btnSenhas = new Button();
-            this.btnSenhas.Text = "Senhas";
-            this.btnSenhas.Location = new Point(40, 100);
-            this.btnSenhas.Size = new Size(100, 30);
-            this.btnSenhas.Click += new EventHandler(this.handleSenhasClick);
+            // this.btnSenhas = new Button();
+            // this.btnSenhas.Text = "Senhas";
+            // this.btnSenhas.Location = new Point(40, 100);
+            // this.btnSenhas.Size = new Size(100, 30);
+            // this.btnSenhas.Click += new EventHandler(this.handleSenhasClick);
 
-            this.btnUsuario = new Button();
-            this.btnUsuario.Text = "Usuario";
-            this.btnUsuario.Location = new Point(160, 100);
-            this.btnUsuario.Size = new Size(100, 30);
-            this.btnUsuario.Click += new EventHandler(this.handleUsuarioClick);
+            // this.btnUsuario = new Button();
+            // this.btnUsuario.Text = "Usuário";
+            // this.btnUsuario.Location = new Point(160, 100);
+            // this.btnUsuario.Size = new Size(100, 30);
+            // this.btnUsuario.Click += new EventHandler(this.handleUsuarioClick);
 
             this.btnCancel = new Button();
             this.btnCancel.Text = "Sair";
@@ -160,23 +155,23 @@ namespace ExemploLogin
             this.Controls.Add(this.btnCancel);
 
         }
-        private void handleTagsClick(object sender, EventArgs e)
-        {
+        // private void handleTagsClick(object sender, EventArgs e)
+        // {
             
-        }
+        // }
         private void handleCategoriaClick(object sender, EventArgs e)
         {
             Categorias menu = new Categorias();
             menu.ShowDialog();
         }
-        private void handleSenhasClick(object sender, EventArgs e)
-        {
+        // private void handleSenhasClick(object sender, EventArgs e)
+        // {
           
-        }
-        private void handleUsuarioClick(object sender, EventArgs e)
-        {
+        // }
+        // private void handleUsuarioClick(object sender, EventArgs e)
+        // {
          
-        }
+        // }
         private void handleCancelClick(object sender, EventArgs e)
         {
             this.Close();

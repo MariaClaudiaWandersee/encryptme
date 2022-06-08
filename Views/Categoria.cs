@@ -1,12 +1,9 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using System.Drawing;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Threading;
-using System.IO;  
+using System.Drawing; 
+using Controllers;
+using Models; 
   
   public class Categorias : Form
     {
@@ -18,7 +15,7 @@ using System.IO;
         Button btnDeletar;
         Button btnUpdate;
 
-        ListView listView;
+        public ListView listView;
         public Categorias()
         {
             this.lblDentista = new Label();
@@ -31,11 +28,6 @@ using System.IO;
             listView.Location = new Point(50, 70);
             listView.Size = new Size(400, 400);
             listView.View = View.Details;
-            ListViewItem lista1 = new ListViewItem("0");
-            lista1.SubItems.Add("Maria");
-            lista1.SubItems.Add("000.000.000-00");
-
-            listView.Items.AddRange(new ListViewItem[] { lista1 });
             listView.Columns.Add("ID", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Nome", -2, HorizontalAlignment.Left);
             listView.Columns.Add("Descrição", -2, HorizontalAlignment.Left);
@@ -68,8 +60,9 @@ using System.IO;
             this.btnUpdate.Size = new Size(80, 30);
             this.btnUpdate.Click += new EventHandler(this.handleConfirmClickCategoriaAtualizar);
 
-            this.Controls.Add(listView);
+            this.loadList();
 
+            this.Controls.Add(listView);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnInsert);
             this.Controls.Add(this.btnDeletar);
@@ -77,21 +70,45 @@ using System.IO;
             this.ClientSize = new System.Drawing.Size(500, 600);
         }
 
+        public void loadList() {
+            this.listView.Items.Clear();
+            IEnumerable<Categoria> categorias = CategoriaController.VisualizarCategoria();
+            foreach (Categoria item in categorias)
+            {    
+                ListViewItem lvItem = new ListViewItem(item.Id.ToString());
+                lvItem.SubItems.Add(item.Nome);
+                lvItem.SubItems.Add(item.Descricao);
+                this.listView.Items.Add(lvItem);
+            }
+        }
+
         private void handleConfirmClickCategoriaAtualizar(object sender, EventArgs e)
         {
-            AtualizarCategoria menu = new AtualizarCategoria();
-            menu.Size = new Size(325, 300);
-            menu.ShowDialog();
+            if (listView.SelectedItems.Count > 0) {
+                AtualizarCategoria menu = new AtualizarCategoria(this);
+                menu.Size = new Size(325, 300);
+                menu.ShowDialog();
+            } else {
+                MessageBox.Show("Não há itens selecionados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void handleConfirmClickCategoriaDeletar(object sender, EventArgs e)
         {
-            DeletarCategoria menu = new DeletarCategoria();
-            menu.Size = new Size(222, 200);
-            menu.ShowDialog();
+            if (listView.SelectedItems.Count > 0) {
+                ListViewItem item = this.listView.SelectedItems[0];
+                int id = Convert.ToInt32(item.Text);
+                DialogResult result = MessageBox.Show($"Deseja excluir a categoria {id}?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) {
+                    CategoriaController.RemoverItem(id);
+                    this.loadList();
+                }
+            } else {
+                MessageBox.Show("Não há itens selecionados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private void handleConfirmClickCategoriaInserir(object sender, EventArgs e)
         {
-            InserirCategoria menu = new InserirCategoria();
+            InserirCategoria menu = new InserirCategoria(this);
             menu.Size = new Size(325, 300);
             menu.ShowDialog();
         }

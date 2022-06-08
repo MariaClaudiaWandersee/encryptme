@@ -1,12 +1,6 @@
 using System;
-using System.Linq;
-using System.Collections.Generic;
 using System.Windows.Forms;
 using System.Drawing;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Threading;
-using System.IO;  
 using Controllers;
 
 
@@ -20,9 +14,12 @@ using Controllers;
         TextBox txtDescricao;
         Button btnConfirm;
         Button btnCancel;
+        Categorias parent;
 
-        public InserirCategoria()
+        public InserirCategoria(Categorias parent)
         {
+            this.parent = parent;
+
             this.lblNome = new Label();
             this.lblNome.Text = "Nome";
             this.lblNome.Location = new Point(10, 20);
@@ -57,9 +54,8 @@ using Controllers;
             this.Controls.Add(this.txtNome);
             this.Controls.Add(this.txtDescricao);
 
-
-            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.btnCancel);
 
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -72,7 +68,9 @@ using Controllers;
             try 
             {
                 CategoriaController.IncluirCategoria(this.txtNome.Text, this.txtDescricao.Text);
-                
+                MessageBox.Show("Categoria cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK);
+                this.parent.loadList();
+                this.Close();
             }
             catch (Exception err)
             {
@@ -81,6 +79,6 @@ using Controllers;
         }
         private void handleCancelClick(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
     }
