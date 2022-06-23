@@ -56,7 +56,7 @@ namespace Views {
             try 
             {
                 TagController.IncluirTag(this.txtDescricao.Text);
-                MessageBox.Show("Tag cadastrado com sucesso!", "Sucesso", MessageBoxButtons.OK);
+                MessageBox.Show("Tag cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK);
                 this.parent.loadList();
                 this.Close();
             }
