@@ -69,7 +69,7 @@ namespace Views {
            try 
             {
                 TagController.AlterarTag(this.id, this.txtDescricao.Text);
-                MessageBox.Show("Descrição cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK);
+                MessageBox.Show("Tag cadastrada com sucesso!", "Sucesso", MessageBoxButtons.OK);
                 this.parent.loadList();
                 this.Close();
             }

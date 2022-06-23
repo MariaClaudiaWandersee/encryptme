@@ -48,17 +48,17 @@ namespace Views {
             this.btnInsert.Size = new Size(80, 30);
             this.btnInsert.Click += new EventHandler(this.handleConfirmClickTagInserir);
 
-            // this.btnDeletar = new Button();
-            // this.btnDeletar.Text = "Deletar";
-            // this.btnDeletar.Location = new Point(160, 500);
-            // this.btnDeletar.Size = new Size(80, 30);
-            // this.btnDeletar.Click += new EventHandler(this.handleConfirmClickTagDeletar);
+            this.btnDeletar = new Button();
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.Location = new Point(160, 500);
+            this.btnDeletar.Size = new Size(80, 30);
+            this.btnDeletar.Click += new EventHandler(this.handleConfirmClickTagDeletar);
 
-            // this.btnUpdate = new Button();
-            // this.btnUpdate.Text = "Atualizar";
-            // this.btnUpdate.Location = new Point(260, 500);
-            // this.btnUpdate.Size = new Size(80, 30);
-            // this.btnUpdate.Click += new EventHandler(this.handleConfirmClickTagAtualizar);
+            this.btnUpdate = new Button();
+            this.btnUpdate.Text = "Atualizar";
+            this.btnUpdate.Location = new Point(260, 500);
+            this.btnUpdate.Size = new Size(80, 30);
+            this.btnUpdate.Click += new EventHandler(this.handleConfirmClickTagAtualizar);
 
             this.loadList();
 
@@ -81,30 +81,30 @@ namespace Views {
             }
         }
 
-        // private void handleConfirmClickTagAtualizar(object sender, EventArgs e)
-        // {
-        //     if (listView.SelectedItems.Count > 0) {
-        //         AtualizarTag menu = new AtualizarTag(this);
-        //         menu.Size = new Size(325, 300);
-        //         menu.ShowDialog();
-        //     } else {
-        //         MessageBox.Show("Não há itens selecionados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //     }
-        // }
-        // private void handleConfirmClickTagDeletar(object sender, EventArgs e)
-        // {
-        //     if (listView.SelectedItems.Count > 0) {
-        //         ListViewItem item = this.listView.SelectedItems[0];
-        //         int id = Convert.ToInt32(item.Text);
-        //         DialogResult result = MessageBox.Show($"Deseja excluir a tag {id}?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-        //         if (result == DialogResult.Yes) {
-        //             TagController.RemoverTag(id);
-        //             this.loadList();
-        //         }
-        //     } else {
-        //         MessageBox.Show("Não há itens selecionados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //     }
-        // }
+        private void handleConfirmClickTagAtualizar(object sender, EventArgs e)
+        {
+            if (listView.SelectedItems.Count > 0) {
+                AtualizarTag menu = new AtualizarTag(this);
+                menu.Size = new Size(325, 300);
+                menu.ShowDialog();
+            } else {
+                MessageBox.Show("Não há itens selecionados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void handleConfirmClickTagDeletar(object sender, EventArgs e)
+        {
+            if (listView.SelectedItems.Count > 0) {
+                ListViewItem item = this.listView.SelectedItems[0];
+                int id = Convert.ToInt32(item.Text);
+                DialogResult result = MessageBox.Show($"Deseja excluir a tag {id}?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes) {
+                    TagController.RemoverTag(id);
+                    this.loadList();
+                }
+            } else {
+                MessageBox.Show("Não há itens selecionados.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         private void handleConfirmClickTagInserir(object sender, EventArgs e)
         {
             InserirTag menu = new InserirTag(this);
