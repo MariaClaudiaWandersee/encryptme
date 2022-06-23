@@ -5,7 +5,7 @@ using System.Drawing;
 using Controllers;
 using Models; 
 
-
+namespace Views {
     public class Usuarios : Form
     {
         private System.ComponentModel.IContainer components = null;
@@ -120,3 +120,4 @@ using Models;
             this.Close();
         }
     }
+}

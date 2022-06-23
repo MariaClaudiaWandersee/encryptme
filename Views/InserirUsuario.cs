@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using Controllers;
 
-
+namespace Views {
    public class InserirUsuario : Form 
     {
         private System.ComponentModel.IContainer components = null;
@@ -94,3 +94,4 @@ using Controllers;
             Close();
         }
     }
+}
