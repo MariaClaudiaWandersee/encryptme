@@ -34,19 +34,14 @@ namespace Views
             this.btnCategorias.Click += new EventHandler(this.handleCategoriaClick);
 
 
-            // this.btnTags = new Button();
-            // this.btnTags.Text = "Tags";
-            // this.btnTags.Location = new Point(160, 60);
-            // this.btnTags.Size = new Size(100, 30);
-
-            // this.btnSenhas = new Button();
-            // this.btnSenhas.Text = "Senhas";
-            // this.btnSenhas.Location = new Point(40, 100);
-            // this.btnSenhas.Size = new Size(100, 30);
-            // this.btnSenhas.Click += new EventHandler(this.handleSenhasClick);
+            this.btnTags = new Button();
+            this.btnTags.Text = "Tags";
+            this.btnTags.Location = new Point(160, 60);
+            this.btnTags.Size = new Size(100, 30);
+            this.btnTags.Click += new EventHandler(this.handleTagClick);
 
             this.btnUsuario = new Button();
-            this.btnUsuario.Text = "Usuário";
+            this.btnUsuario.Text = "Usuários";
             this.btnUsuario.Location = new Point(160, 100);
             this.btnUsuario.Size = new Size(100, 30);
             this.btnUsuario.Click += new EventHandler(this.handleUsuarioClick);
@@ -66,19 +61,16 @@ namespace Views
             this.Controls.Add(this.btnCancel);
 
         }
-        // private void handleTagsClick(object sender, EventArgs e)
-        // {
-
-        // }
+        private void handleTagClick(object sender, EventArgs e)
+        {
+            Tags menu = new Tags();
+            menu.ShowDialog();
+        }
         private void handleCategoriaClick(object sender, EventArgs e)
         {
             Categorias menu = new Categorias();
             menu.ShowDialog();
         }
-        // private void handleSenhasClick(object sender, EventArgs e)
-        // {
-
-        // }
         private void handleUsuarioClick(object sender, EventArgs e)
         {
             Usuarios menu = new Usuarios();

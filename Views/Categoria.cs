@@ -4,7 +4,8 @@ using System.Windows.Forms;
 using System.Drawing; 
 using Controllers;
 using Models; 
-  
+
+namespace Views {  
     public class Categorias : Form
     {
         private System.ComponentModel.IContainer components = null;
@@ -116,4 +117,5 @@ using Models;
         {
             this.Close();
         }
+    }
 }

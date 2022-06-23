@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using Controllers;
 
-
+namespace Views {
    public class InserirCategoria : Form 
     {
         private System.ComponentModel.IContainer components = null;
@@ -82,3 +82,4 @@ using Controllers;
             Close();
         }
     }
+}
