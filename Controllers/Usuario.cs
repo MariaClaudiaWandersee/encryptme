@@ -55,6 +55,8 @@ namespace Controllers
                 Senha = Senha;
             }
 
+            Usuario.AlterarUsuario(Id, Nome, Email, Senha);
+            
             return usuario;
         }
 
