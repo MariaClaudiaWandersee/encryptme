@@ -40,11 +40,11 @@ namespace Views {
 
             this.lblEmail = new Label();
             this.lblEmail.Text = "Email";
-            this.lblEmail.Location = new Point(10, 110);
+            this.lblEmail.Location = new Point(10, 90);
             
             this.lblSenha = new Label();
             this.lblSenha.Text = "Senha";
-            this.lblSenha.Location = new Point(10, 110);
+            this.lblSenha.Location = new Point(10, 145);
 
             this.txtNome = new TextBox();
             this.txtNome.Location = new Point(10, 50);
@@ -52,12 +52,12 @@ namespace Views {
             this.txtNome.Text = usuario.Nome;
 
             this.txtEmail = new TextBox();
-            this.txtEmail.Location = new Point(10, 135);
+            this.txtEmail.Location = new Point(10, 115);
             this.txtEmail.Size = new Size(280, 30);
             this.txtEmail.Text = usuario.Email;
 
             this.txtSenha = new TextBox();
-            this.txtSenha.Location = new Point(10, 135);
+            this.txtSenha.Location = new Point(10, 170);
             this.txtSenha.Size = new Size(280, 30);
             this.txtSenha.Text = usuario.Senha;
 
